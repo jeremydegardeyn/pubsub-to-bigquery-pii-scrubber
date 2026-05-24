@@ -46,14 +46,10 @@ SAMPLE_CLEAN = {
 
 
 def _scrub(inputs):
+    fn = ScrubPIIDoFn()
     results = []
-    with TestPipeline() as p:
-        (
-            p
-            | beam.Create(inputs)
-            | beam.ParDo(ScrubPIIDoFn())
-            | beam.Map(results.append)
-        )
+    for item in inputs:
+        results.extend(fn.process(item))
     return results
 
 
