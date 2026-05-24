@@ -1,0 +1,6 @@
+project_id        = "your-gcp-project-id"
+region            = "us-central1"
+pubsub_topic_name = "pii-scrubber-input"
+bq_dataset_id     = "pii_scrubbed_data"
+bq_table_id       = "scrubbed_messages"
+dataflow_bucket   = "your-gcs-bucket-name"
